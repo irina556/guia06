@@ -1,5 +1,6 @@
 package died.guia06;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,12 @@ public class Curso {
 	 * @return
 	 */
 	public Boolean inscribir(Alumno a) {
+		try {
 		log.registrar(this, "inscribir ",a.toString());
+		}
+		catch(IOException e) {
+			System.out.println("Alumno no se pudo inscribir al curso por problema en entrada/salida");
+		}
 		return false;
 	}
 	
@@ -55,7 +61,12 @@ public class Curso {
 	 * imprime los inscriptos en orden alfabetico
 	 */
 	public void imprimirInscriptos() {
+		try {
 		log.registrar(this, "imprimir listado",this.inscriptos.size()+ " registros ");
+		}
+		catch(IOException e) {
+			System.out.println("No se pudo imprimir los inscriptos por problemas en entrada/salida");
+		}
 	}
 
 
